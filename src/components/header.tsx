@@ -37,11 +37,11 @@ export function Header({ isHomePage }: { isHomePage?: boolean }) {
 
   return (
    <>
-    <header className="fixed top-0 z-50 w-full border-b border-border/50 bg-background/95 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
+    <header className="fixed top-0 z-50 w-full border-b border-border/50 bg-background/95 backdrop-blur-xl supports-backdrop-filter:bg-background/60">
       <div className="container flex h-14 sm:h-16 items-center justify-between px-4 sm:px-6">
         {/* Logo */}
         <div className="flex items-center space-x-5">
-          <Link href="/" className="flex items-center space-x-2 flex-shrink-0">
+          <Link href="/" className="flex items-center space-x-2 shrink-0">
             <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg bg-primary">
               <Briefcase className="h-4 w-4 sm:h-5 sm:w-5 text-primary-foreground" />
             </div>
@@ -77,8 +77,8 @@ export function Header({ isHomePage }: { isHomePage?: boolean }) {
         <div className="flex items-center space-x-2">
           {/* Search Bar - Desktop */}
           <div className="hidden md:flex items-center space-x-2 flex-1 max-w-sm mx-4">
-            <div className="relative flex-1">
-              <Search className="absolute left-2.5 top-3 h-4 w-4 text-muted-foreground" />
+            <div className="relative flex-1 flex items-center">
+              <Search className="absolute left-2.5 mt-[3px] h-4 w-4 text-muted-foreground" />
               <Input
                 type="search"
                 placeholder="Search your dream job..."
