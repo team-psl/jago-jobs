@@ -42,6 +42,7 @@ export default function RootLayout({
 }) {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden flex flex-col">
+
       <Header isHomePage={true} />
       <main className="flex-1">{children}</main>
       <Footer />

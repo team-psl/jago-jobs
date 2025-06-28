@@ -14,48 +14,46 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Badge } from '@/components/ui/badge';
 
+
 const colorSchemes = [
   {
     name: 'Red (Default)',
-    value: 'red',
-    primary: 'hsl(0, 84%, 60%)',
-    primaryForeground: 'hsl(0, 0%, 98%)',
-    cssVar: '0 84% 60%',
+    primary: 'oklch(0.637 0.237 25.331)',
+    primaryForeground: 'oklch(0.969 0.015 12.422)',
     description: 'Bold and energetic',
   },
   {
-    name: 'Blue',
-    value: 'blue',
-    primary: 'hsl(221, 83%, 53%)',
-    primaryForeground: 'hsl(0, 0%, 98%)',
-    cssVar: '221 83% 53%',
-    description: 'Professional and trustworthy',
-  },
-  {
-    name: 'Green',
-    value: 'green',
-    primary: 'hsl(142, 76%, 36%)',
-    primaryForeground: 'hsl(0, 0%, 98%)',
-    cssVar: '142 76% 36%',
-    description: 'Fresh and natural',
-  },
-  {
-    name: 'Purple',
-    value: 'purple',
-    primary: 'hsl(262, 83%, 58%)',
-    primaryForeground: 'hsl(0, 0%, 98%)',
-    cssVar: '262 83% 58%',
-    description: 'Creative and modern',
+    name: 'Rose',
+    primary: 'oklch(0.645 0.246 16.439)',
+    primaryForeground: 'oklch(0.969 0.015 12.422)',
+    description: 'Romantic and soft',
   },
   {
     name: 'Orange',
-    value: 'orange',
-    primary: 'hsl(25, 95%, 53%)',
-    primaryForeground: 'hsl(0, 0%, 98%)',
-    cssVar: '25 95% 53%',
+    primary: 'oklch(0.705 0.213 47.604)',
+    primaryForeground: 'oklch(0.969 0.015 12.422)',
     description: 'Warm and friendly',
   },
+  {
+    name: 'Blue',
+    primary: 'oklch(0.623 0.214 259.815)',
+    primaryForeground: 'oklch(0.969 0.015 12.422)',
+    description: 'Professional and trustworthy',
+  },  
+  {
+    name: 'Yellow',
+    primary: 'oklch(0.795 0.184 86.047)',
+    primaryForeground: 'oklch(0.969 0.015 12.422)',
+    description: 'Bright and cheerful',
+  },
+  {
+    name: 'Violet',
+    primary: 'oklch(0.606 0.25 292.717)',
+    primaryForeground: 'oklch(0.969 0.015 12.422)',
+    description: 'Creative and modern',
+  },
 ];
+
 
 export function EnhancedThemeToggle() {
   const { theme, setTheme } = useTheme();
@@ -71,13 +69,12 @@ export function EnhancedThemeToggle() {
 
   const applyColorScheme = (scheme: string) => {
     const root = document.documentElement;
-    const colorConfig = colorSchemes.find((c) => c.value === scheme);
+    const colorConfig = colorSchemes.find((c) => c.name === scheme);
 
     if (colorConfig) {
       // Update CSS custom properties
-      root.style.setProperty('--primary', colorConfig.cssVar);
-      root.style.setProperty('--ring', colorConfig.cssVar);
-      root.style.setProperty('--primary-foreground', colorConfig.primaryForeground);
+      root.style.setProperty('--primary', colorConfig.primary);
+      root.style.setProperty('--ring', colorConfig.primary);
       
       // Save to localStorage
       localStorage.setItem('color-scheme', scheme);
@@ -90,7 +87,7 @@ export function EnhancedThemeToggle() {
   }
 
   const currentScheme = colorSchemes.find(
-    (s) => s.value === currentColorScheme
+    (s) => s.name === currentColorScheme
   );
 
   return (
@@ -148,10 +145,10 @@ export function EnhancedThemeToggle() {
 
         {colorSchemes.map((scheme) => (
           <DropdownMenuItem
-            key={scheme.value}
-            onClick={() => applyColorScheme(scheme.value)}
+            key={scheme.name}
+            onClick={() => applyColorScheme(scheme.name)}
             className={`cursor-pointer ${
-              currentColorScheme === scheme.value ? 'bg-accent' : ''
+              currentColorScheme === scheme.name ? 'bg-accent' : ''
             }`}
           >
             <div className="flex items-center gap-3 w-full">
@@ -162,7 +159,7 @@ export function EnhancedThemeToggle() {
               <div className="flex-1">
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-medium">{scheme.name}</span>
-                  {scheme.value === 'red' && (
+                  {scheme.name === 'Red (Default)' && (
                     <Badge variant="secondary" className="text-xs px-1.5 py-0">
                       Default
                     </Badge>
@@ -172,7 +169,7 @@ export function EnhancedThemeToggle() {
                   {scheme.description}
                 </p>
               </div>
-              {currentColorScheme === scheme.value && (
+              {currentColorScheme === scheme.name && (
                 <Check className="h-4 w-4" />
               )}
             </div>

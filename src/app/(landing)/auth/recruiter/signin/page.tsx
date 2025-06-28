@@ -30,7 +30,7 @@ export default function RecruiterSignInPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-muted/30">
+    <div className="min-h-screen bg-linear-to-br from-background to-muted/30">
       <Header />
 
       <div className="container py-10">
@@ -163,8 +163,8 @@ export default function RecruiterSignInPage() {
               </form>
 
               <div className="text-center text-sm">
-                <span className="text-foreground/70">Don't have an account? </span>
-                <Link href="/auth/recruiter/signup" className="text-primary hover:text-primary/80 font-medium">
+                <span className="text-foreground/70">Don&apos;t have an account? </span>
+                <Link href="/auth/recruiter/signup" className="text-primary hover:text-primary/80 font-medium"> 
                   Sign up here
                 </Link>
               </div>

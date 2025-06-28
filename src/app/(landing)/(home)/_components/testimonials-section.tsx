@@ -97,12 +97,12 @@ export function TestimonialsSection() {
   const duplicatedTestimonials = [...testimonials, ...testimonials]
 
   return (
-    <section id="testimonials" className="py-20 bg-gradient-to-br from-muted/20 via-background to-muted/10 overflow-hidden">
+    <section id="testimonials" className="py-20 bg-linear-to-br from-muted/20 via-background to-muted/10 overflow-hidden">
       <div className="container">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-4 text-foreground">
             What Our{" "}
-            <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">Users Say</span>
+            <span className="bg-linear-to-r from-primary to-primary/80 bg-clip-text text-transparent">Users Say</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Success stories from job seekers and employers across Bangladesh
@@ -112,10 +112,10 @@ export function TestimonialsSection() {
         {/* Infinite Scroll Container */}
         <div className="relative overflow-hidden">
           {/* Left Edge Shadow */}
-          <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-background via-background/80 to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-16 bg-linear-to-r from-background via-background/80 to-transparent z-10 pointer-events-none" />
           
           {/* Right Edge Shadow */}
-          <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-background via-background/80 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 bg-linear-to-l from-background via-background/80 to-transparent z-10 pointer-events-none" />
           
           <motion.div
             className="flex gap-6"

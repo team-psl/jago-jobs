@@ -210,31 +210,33 @@ export default function CareerTipsPage() {
       </section>
 
       <div className="container py-8 md:py-12">
-        <div className="grid gap-6 lg:gap-8 lg:grid-cols-4">
+        <div className="grid gap-8 lg:gap-12 lg:grid-cols-4">
           {/* Sidebar */}
           <div className="lg:col-span-1 order-2 lg:order-1">
-            <div className="space-y-4 md:space-y-6 lg:sticky lg:top-24">
+            <div className="space-y-6 lg:sticky lg:top-24">
               {/* Categories */}
-              <Card>
-                <CardHeader className="pb-3">
-                  <CardTitle className="flex items-center gap-2 text-base md:text-lg">
-                    <Filter className="h-4 w-4 md:h-5 md:w-5" />
+              <Card className="border-border/50 shadow-sm">
+                <CardHeader className="pb-6">
+                  <CardTitle className="flex items-center gap-3 text-lg font-semibold">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
+                      <Filter className="h-4 w-4 text-primary" />
+                    </div>
                     Categories
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-1">
+                <CardContent className="space-y-2">
                   {categories.map((category) => (
                     <button
                       key={category.name}
                       onClick={() => setSelectedCategory(category.name)}
-                      className={`w-full flex items-center justify-between p-2 rounded-lg text-xs md:text-sm transition-colors ${
+                      className={`w-full flex items-center justify-between p-3 rounded-lg text-sm font-medium transition-all duration-200 ${
                         selectedCategory === category.name
-                          ? "bg-primary text-primary-foreground"
-                          : "hover:bg-muted text-foreground"
+                          ? "bg-primary text-primary-foreground shadow-sm"
+                          : "hover:bg-muted/50 text-foreground hover:shadow-sm"
                       }`}
                     >
                       <span className="truncate">{category.name}</span>
-                      <Badge variant="secondary" className="text-xs ml-2 flex-shrink-0">
+                      <Badge variant="secondary" className="text-xs font-medium ml-2 shrink-0">
                         {category.count}
                       </Badge>
                     </button>
@@ -243,20 +245,22 @@ export default function CareerTipsPage() {
               </Card>
 
               {/* Trending Topics */}
-              <Card>
-                <CardHeader className="pb-3">
-                  <CardTitle className="flex items-center gap-2 text-base md:text-lg">
-                    <TrendingUp className="h-4 w-4 md:h-5 md:w-5" />
+              <Card className="border-border/50 shadow-sm">
+                <CardHeader className="pb-6">
+                  <CardTitle className="flex items-center gap-3 text-lg font-semibold">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-500/10">
+                      <TrendingUp className="h-4 w-4 text-orange-500" />
+                    </div>
                     Trending Topics
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="flex flex-wrap gap-1.5 md:gap-2">
+                  <div className="flex flex-wrap gap-2">
                     {trendingTopics.map((topic) => (
                       <Badge
                         key={topic}
                         variant="outline"
-                        className="cursor-pointer hover:bg-primary hover:text-primary-foreground transition-colors text-xs"
+                        className="cursor-pointer hover:bg-primary hover:text-primary-foreground transition-all duration-200 text-xs font-medium border-border/50"
                       >
                         {topic}
                       </Badge>
@@ -266,17 +270,23 @@ export default function CareerTipsPage() {
               </Card>
 
               {/* Newsletter Signup */}
-              <Card className="bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20">
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-primary text-base md:text-lg">Stay Updated</CardTitle>
+              <Card className="bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 border-primary/20 shadow-sm">
+                <CardHeader className="pb-6">
+                  <CardTitle className="text-primary text-lg font-semibold">Stay Updated</CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-3">
-                  <p className="text-xs md:text-sm text-muted-foreground">
+                <CardContent className="space-y-4">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     Get the latest career tips and industry news delivered to your inbox.
                   </p>
-                  <div className="space-y-2">
-                    <Input type="email" placeholder="Enter your email" className="text-sm" />
-                    <Button className="w-full text-sm">Subscribe</Button>
+                  <div className="space-y-3">
+                    <Input 
+                      type="email" 
+                      placeholder="Enter your email" 
+                      className="text-sm border-border/50 focus:border-primary" 
+                    />
+                    <Button className="w-full text-sm font-medium shadow-sm">
+                      Subscribe
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
@@ -284,19 +294,21 @@ export default function CareerTipsPage() {
           </div>
 
           {/* Main Content */}
-          <div className="lg:col-span-3 order-1 lg:order-2 space-y-6 md:space-y-8">
+          <div className="lg:col-span-3 order-1 lg:order-2 space-y-10">
             {/* Featured Articles */}
             <section>
-              <div className="flex items-center gap-2 mb-6">
-                <Star className="h-5 w-5 text-primary" />
+              <div className="flex items-center gap-3 mb-8">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
+                  <Star className="h-5 w-5 text-primary" />
+                </div>
                 <h2 className="text-2xl font-bold text-foreground">Featured Articles</h2>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-8">
                 {featuredArticles.map((article, index) => (
                   <Card
                     key={article.id}
-                    className="group cursor-pointer hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                    className="group cursor-pointer hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-border/50 overflow-hidden"
                   >
                     <div className={`${index === 0 ? "lg:flex" : "md:flex"} gap-0`}>
                       <div className={`${index === 0 ? "lg:w-1/2" : "md:w-2/5"} relative overflow-hidden`}>
@@ -305,70 +317,75 @@ export default function CareerTipsPage() {
                             src={article.image || "/placeholder.svg"}
                             alt={article.title}
                             fill
-                            className="object-cover group-hover:scale-105 transition-transform duration-300"
+                            className="object-cover group-hover:scale-105 transition-transform duration-500"
                           />
                         </div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         {article.trending && (
-                          <Badge className="absolute top-3 left-3 bg-orange-500 hover:bg-orange-600 text-xs">
+                          <Badge className="absolute top-4 left-4 bg-orange-500 hover:bg-orange-600 text-xs font-medium shadow-sm">
                             🔥 Trending
                           </Badge>
                         )}
                         {article.featured && (
-                          <Badge className="absolute top-3 right-3 bg-primary text-xs">Featured</Badge>
+                          <Badge className="absolute top-4 right-4 bg-primary text-xs font-medium shadow-sm">Featured</Badge>
                         )}
                       </div>
 
                       <div
-                        className={`${index === 0 ? "lg:w-1/2" : "md:w-3/5"} p-4 md:p-6 flex flex-col justify-between`}
+                        className={`${index === 0 ? "lg:w-1/2" : "md:w-3/5"} p-8 flex flex-col justify-between`}
                       >
-                        <div className="space-y-3">
-                          <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
-                            <Badge variant="secondary" className="text-xs">
+                        <div className="space-y-5">
+                          <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
+                            <Badge variant="secondary" className="text-xs font-medium bg-muted/50">
                               {article.category}
                             </Badge>
-                            <span className="hidden sm:inline">•</span>
-                            <div className="flex items-center gap-1">
-                              <Clock className="h-3 w-3" />
-                              <span className="text-xs">{article.readTime}</span>
+                            <span className="hidden sm:inline text-border">•</span>
+                            <div className="flex items-center gap-1.5">
+                              <Clock className="h-3.5 w-3.5" />
+                              <span className="text-xs font-medium">{article.readTime}</span>
                             </div>
                           </div>
 
-                          <h3 className="text-lg md:text-xl font-bold text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                          <h3 className="text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-200 line-clamp-2 leading-tight">
                             {article.title}
                           </h3>
 
-                          <p className="text-sm md:text-base text-muted-foreground line-clamp-2 md:line-clamp-3">
+                          <p className="text-base text-muted-foreground line-clamp-3 leading-relaxed">
                             {article.excerpt}
                           </p>
                         </div>
 
-                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between pt-3 mt-3 border-t gap-3">
-                          <div className="flex flex-wrap items-center gap-2 text-xs md:text-sm text-muted-foreground">
-                            <div className="flex items-center gap-1">
-                              <User className="h-3 w-3" />
-                              <span>{article.author}</span>
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between pt-6 mt-6 border-t border-border/50 gap-4">
+                          <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+                            <div className="flex items-center gap-2">
+                              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-muted/50">
+                                <User className="h-3 w-3" />
+                              </div>
+                              <span className="font-medium">{article.author}</span>
                             </div>
-                            <span className="hidden sm:inline">•</span>
-                            <div className="flex items-center gap-1">
-                              <Calendar className="h-3 w-3" />
-                              <span>{new Date(article.publishedAt).toLocaleDateString()}</span>
+                            <span className="hidden sm:inline text-border">•</span>
+                            <div className="flex items-center gap-2">
+                              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-muted/50">
+                                <Calendar className="h-3 w-3" />
+                              </div>
+                              <span className="font-medium">{new Date(article.publishedAt).toLocaleDateString()}</span>
                             </div>
                           </div>
 
                           <div className="flex items-center justify-between sm:justify-end gap-4">
-                            <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                              <Eye className="h-3 w-3" />
-                              <span>{article.views.toLocaleString()}</span>
+                            <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
+                              <Eye className="h-3.5 w-3.5" />
+                              <span className="font-medium">{article.views.toLocaleString()}</span>
                             </div>
                             <div className="flex items-center gap-1">
-                              <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
-                                <Heart className="h-3 w-3" />
+                              <Button variant="ghost" size="sm" className="h-9 w-9 p-0 hover:bg-muted/50">
+                                <Heart className="h-4 w-4" />
                               </Button>
-                              <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
-                                <Bookmark className="h-3 w-3" />
+                              <Button variant="ghost" size="sm" className="h-9 w-9 p-0 hover:bg-muted/50">
+                                <Bookmark className="h-4 w-4" />
                               </Button>
-                              <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
-                                <Share2 className="h-3 w-3" />
+                              <Button variant="ghost" size="sm" className="h-9 w-9 p-0 hover:bg-muted/50">
+                                <Share2 className="h-4 w-4" />
                               </Button>
                             </div>
                           </div>
@@ -382,23 +399,25 @@ export default function CareerTipsPage() {
 
             {/* Recent Articles */}
             <section>
-              <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center gap-2">
-                  <BookOpen className="h-5 w-5 text-primary" />
+              <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500/10">
+                    <BookOpen className="h-5 w-5 text-blue-500" />
+                  </div>
                   <h2 className="text-xl md:text-2xl font-bold text-foreground">Recent Articles</h2>
                 </div>
-                <Button variant="outline" className="gap-2 bg-transparent text-xs md:text-sm">
+                <Button variant="outline" className="gap-2 bg-transparent text-sm font-medium border-border/50 hover:bg-muted/50">
                   <span className="hidden sm:inline">View All</span>
                   <span className="sm:hidden">All</span>
                   <ArrowRight className="h-3 w-3 md:h-4 md:w-4" />
                 </Button>
               </div>
 
-              <div className="grid gap-4 md:gap-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+              <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
                 {recentArticles.map((article) => (
                   <Card
                     key={article.id}
-                    className="group cursor-pointer hover:shadow-lg transition-all duration-300 flex flex-col"
+                    className="group cursor-pointer hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col overflow-hidden border-border/50"
                   >
                     <div className="relative overflow-hidden">
                       <div className="aspect-video w-full">
@@ -406,35 +425,38 @@ export default function CareerTipsPage() {
                           src={article.image || "/placeholder.svg"}
                           alt={article.title}
                           fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                       </div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
 
-                    <CardContent className="p-3 md:p-4 space-y-3 flex-1 flex flex-col">
-                      <Badge variant="secondary" className="text-xs w-fit">
+                    <CardContent className="p-6 space-y-5 flex-1 flex flex-col">
+                      <Badge variant="secondary" className="text-xs font-medium w-fit bg-muted/50">
                         {article.category}
                       </Badge>
 
-                      <h3 className="text-sm md:text-base font-bold text-foreground group-hover:text-primary transition-colors line-clamp-2 flex-1">
+                      <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-200 line-clamp-2 flex-1 leading-tight">
                         {article.title}
                       </h3>
 
-                      <p className="text-xs md:text-sm text-muted-foreground line-clamp-2">{article.excerpt}</p>
+                      <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">{article.excerpt}</p>
 
-                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between pt-2 border-t text-xs text-muted-foreground gap-2 mt-auto">
-                        <div className="flex items-center gap-1 truncate">
-                          <User className="h-3 w-3 flex-shrink-0" />
-                          <span className="truncate">{article.author}</span>
-                        </div>
-                        <div className="flex items-center justify-between sm:justify-end gap-3">
-                          <div className="flex items-center gap-1">
-                            <Clock className="h-3 w-3" />
-                            <span>{article.readTime}</span>
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between pt-5 border-t border-border/50 text-sm text-muted-foreground gap-4 mt-auto">
+                        <div className="flex items-center gap-2 truncate">
+                          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-muted/50 shrink-0">
+                            <User className="h-3 w-3" />
                           </div>
-                          <div className="flex items-center gap-1">
-                            <Eye className="h-3 w-3" />
-                            <span>{article.views}</span>
+                          <span className="truncate font-medium">{article.author}</span>
+                        </div>
+                        <div className="flex items-center justify-between sm:justify-end gap-4">
+                          <div className="flex items-center gap-1.5">
+                            <Clock className="h-3.5 w-3.5" />
+                            <span className="font-medium">{article.readTime}</span>
+                          </div>
+                          <div className="flex items-center gap-1.5">
+                            <Eye className="h-3.5 w-3.5" />
+                            <span className="font-medium">{article.views}</span>
                           </div>
                         </div>
                       </div>
@@ -445,8 +467,8 @@ export default function CareerTipsPage() {
             </section>
 
             {/* Load More */}
-            <div className="text-center">
-              <Button size="lg" variant="outline" className="gap-2 bg-transparent">
+            <div className="text-center pt-8">
+              <Button size="lg" variant="outline" className="gap-3 bg-transparent font-medium border-border/50 hover:bg-muted/50 shadow-sm">
                 Load More Articles
                 <ArrowRight className="h-4 w-4" />
               </Button>

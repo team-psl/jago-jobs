@@ -42,12 +42,12 @@ export function ModernHeroAnimation() {
       {/* Background Elements */}
       <div className="absolute inset-0 ">
         <motion.div
-          className="absolute top-10 left-10 w-24 h-24 bg-gradient-to-br from-blue-400/20 to-blue-600/30 rounded-2xl rotate-12"
+          className="absolute top-10 left-10 w-24 h-24 bg-linear-to-br from-blue-400/20 to-blue-600/30 rounded-2xl rotate-12"
           animate={{ y: [0, -10, 0], rotate: [12, 15, 12] }}
           transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
         />
         <motion.div
-          className="absolute top-32 right-16 w-20 h-20 bg-gradient-to-br from-purple-400/20 to-purple-600/30 rounded-full"
+          className="absolute top-32 right-16 w-20 h-20 bg-linear-to-br from-purple-400/20 to-purple-600/30 rounded-full"
           animate={{ y: [0, -15, 0], scale: [1, 1.1, 1] }}
           transition={{
             repeat: Infinity,
@@ -57,7 +57,7 @@ export function ModernHeroAnimation() {
           }}
         />
         <motion.div
-          className="absolute bottom-32 left-20 w-16 h-16 bg-gradient-to-br from-green-400/20 to-green-600/30 rounded-lg rotate-45"
+          className="absolute bottom-32 left-20 w-16 h-16 bg-linear-to-br from-green-400/20 to-green-600/30 rounded-lg rotate-45"
           animate={{ y: [0, -8, 0], rotate: [45, 50, 45] }}
           transition={{
             repeat: Infinity,
@@ -66,7 +66,7 @@ export function ModernHeroAnimation() {
             delay: 2,
           }}
         />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:30px_30px] opacity-40" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-size-[30px_30px] opacity-40" />
       </div>
 
       {/* Main Illustration */}
@@ -93,7 +93,7 @@ export function ModernHeroAnimation() {
               }}
             >
               <div
-                className={`bg-gradient-to-r ${card.color} p-4 rounded-xl shadow-2xl text-white min-w-[180px] backdrop-blur-sm border border-white/20`}
+                className={`bg-linear-to-r ${card.color} p-4 rounded-xl shadow-2xl text-white min-w-[180px] backdrop-blur-sm border border-white/20`}
               >
                 <div className="flex items-center gap-2 mb-2">
                   <span className="text-lg">{card.icon}</span>
@@ -288,7 +288,7 @@ export function ModernHeroAnimation() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
           >
-            <div className="w-32 h-32 bg-gradient-to-br from-primary/20 to-primary/40 rounded-full flex items-center justify-center">
+            <div className="w-32 h-32 bg-linear-to-br from-primary/20 to-primary/40 rounded-full flex items-center justify-center">
               <div className="text-4xl">🤝</div>
             </div>
           </motion.div>

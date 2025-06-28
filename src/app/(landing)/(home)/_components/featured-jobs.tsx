@@ -1,24 +1,35 @@
-"use client"
+'use client';
 
-import { motion } from "framer-motion"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { MapPin, Clock, DollarSign, ExternalLink, Star, Bookmark, Eye, Users, Zap, ArrowRight } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
+import { motion } from 'framer-motion';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import {
+  MapPin,
+  Clock,
+  DollarSign,
+  ExternalLink,
+  Star,
+  Bookmark,
+  Eye,
+  Users,
+  Zap,
+  ArrowRight,
+} from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const featuredJobs = [
   {
     id: 1,
-    title: "Senior Software Engineer",
-    company: "TechCorp Bangladesh",
-    location: "Dhaka",
-    type: "Full-time",
-    salary: "৳80K - ৳120K",
-    posted: "2h ago",
-    logo: "/placeholder.svg?height=48&width=48",
-    tags: ["React", "Node.js", "TypeScript"],
+    title: 'Senior Software Engineer',
+    company: 'TechCorp Bangladesh',
+    location: 'Dhaka',
+    type: 'Full-time',
+    salary: '80K - 120K',
+    posted: '2h ago',
+    logo: '/placeholder.svg?height=48&width=48',
+    tags: ['React', 'Node.js', 'TypeScript'],
     urgent: true,
     featured: true,
     rating: 4.8,
@@ -28,14 +39,14 @@ const featuredJobs = [
   },
   {
     id: 2,
-    title: "Product Designer",
-    company: "Design Studio Pro",
-    location: "Chittagong",
-    type: "Full-time",
-    salary: "৳60K - ৳90K",
-    posted: "1d ago",
-    logo: "/placeholder.svg?height=48&width=48",
-    tags: ["Figma", "UI/UX", "Prototyping"],
+    title: 'Product Designer',
+    company: 'Design Studio Pro',
+    location: 'Chittagong',
+    type: 'Full-time',
+    salary: '60K - 90K',
+    posted: '1d ago',
+    logo: '/placeholder.svg?height=48&width=48',
+    tags: ['Figma', 'UI/UX', 'Prototyping'],
     urgent: false,
     featured: true,
     rating: 4.9,
@@ -45,14 +56,14 @@ const featuredJobs = [
   },
   {
     id: 3,
-    title: "Marketing Manager",
-    company: "Growth Agency BD",
-    location: "Dhaka",
-    type: "Full-time",
-    salary: "৳70K - ৳100K",
-    posted: "3h ago",
-    logo: "/placeholder.svg?height=48&width=48",
-    tags: ["Digital Marketing", "SEO", "Analytics"],
+    title: 'Marketing Manager',
+    company: 'Growth Agency BD',
+    location: 'Dhaka',
+    type: 'Full-time',
+    salary: '70K - 100K',
+    posted: '3h ago',
+    logo: '/placeholder.svg?height=48&width=48',
+    tags: ['Digital Marketing', 'SEO', 'Analytics'],
     urgent: true,
     featured: true,
     rating: 4.7,
@@ -62,14 +73,14 @@ const featuredJobs = [
   },
   {
     id: 4,
-    title: "Data Scientist",
-    company: "Analytics Pro",
-    location: "Dhaka",
-    type: "Remote",
-    salary: "৳90K - ৳140K",
-    posted: "5h ago",
-    logo: "/placeholder.svg?height=48&width=48",
-    tags: ["Python", "ML", "SQL"],
+    title: 'Data Scientist',
+    company: 'Analytics Pro',
+    location: 'Dhaka',
+    type: 'Remote',
+    salary: '90K - 140K',
+    posted: '5h ago',
+    logo: '/placeholder.svg?height=48&width=48',
+    tags: ['Python', 'ML', 'SQL'],
     urgent: false,
     featured: true,
     rating: 4.8,
@@ -79,14 +90,14 @@ const featuredJobs = [
   },
   {
     id: 5,
-    title: "DevOps Engineer",
-    company: "Cloud Solutions",
-    location: "Sylhet",
-    type: "Full-time",
-    salary: "৳75K - ৳110K",
-    posted: "1d ago",
-    logo: "/placeholder.svg?height=48&width=48",
-    tags: ["AWS", "Docker", "K8s"],
+    title: 'DevOps Engineer',
+    company: 'Cloud Solutions',
+    location: 'Sylhet',
+    type: 'Full-time',
+    salary: '75K - 110K',
+    posted: '1d ago',
+    logo: '/placeholder.svg?height=48&width=48',
+    tags: ['AWS', 'Docker', 'K8s'],
     urgent: false,
     featured: true,
     rating: 4.6,
@@ -96,14 +107,14 @@ const featuredJobs = [
   },
   {
     id: 6,
-    title: "Business Analyst",
-    company: "Finance Corp",
-    location: "Dhaka",
-    type: "Full-time",
-    salary: "৳55K - ৳85K",
-    posted: "6h ago",
-    logo: "/placeholder.svg?height=48&width=48",
-    tags: ["Excel", "SQL", "BI"],
+    title: 'Business Analyst',
+    company: 'Finance Corp',
+    location: 'Dhaka',
+    type: 'Full-time',
+    salary: '55K - 85K',
+    posted: '6h ago',
+    logo: '/placeholder.svg?height=48&width=48',
+    tags: ['Excel', 'SQL', 'BI'],
     urgent: true,
     featured: false,
     rating: 4.5,
@@ -111,7 +122,7 @@ const featuredJobs = [
     views: 780,
     trending: false,
   },
-]
+];
 
 // Animation variants
 const containerVariants = {
@@ -123,39 +134,28 @@ const containerVariants = {
       delayChildren: 0.2,
     },
   },
-}
+};
 
 const cardVariants = {
-  hidden: { 
-    opacity: 0, 
+  hidden: {
+    opacity: 0,
     y: 20,
-    scale: 0.95
+    scale: 0.95,
   },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     scale: 1,
   },
-}
+};
 
-const buttonVariants = {
-  hover: {
-    scale: 1.05,
-    transition: {
-      duration: 0.2,
-    }
-  },
-  tap: {
-    scale: 0.95,
-  }
-}
 
 export function FeaturedJobs() {
   return (
-    <section className="py-16 bg-gradient-to-br from-muted/20 via-background to-muted/10">
+    <section className="py-16 bg-linear-to-br from-muted/20 via-background to-muted/10">
       <div className="container">
         {/* Header */}
-        <motion.div 
+        <motion.div
           className="text-center mb-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -164,40 +164,44 @@ export function FeaturedJobs() {
         >
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary mb-3">
             <Zap className="h-3.5 w-3.5" />
-            <span className="text-xs font-semibold uppercase tracking-wide">Hot Jobs</span>
+            <span className="text-xs font-semibold uppercase tracking-wide">
+              Hot Jobs
+            </span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">Top Jobs Right Now</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
+            Top Jobs Right Now
+          </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Premium opportunities from Bangladesh's leading companies
+            Premium opportunities from Bangladesh&apos;s leading companies
           </p>
         </motion.div>
 
         {/* Job Cards Grid */}
-        <motion.div 
+        <motion.div
           className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: '-100px' }}
         >
           {featuredJobs.map((job) => (
             <motion.div
               key={job.id}
               className="group"
               variants={cardVariants}
-              whileHover={{ 
+              whileHover={{
                 y: -4,
-                transition: { duration: 0.3 }
+                transition: { duration: 0.3 },
               }}
             >
               <Card className="relative h-full bg-card border hover:border-primary/30 hover:shadow-lg transition-all duration-300 group cursor-pointer">
-                <CardContent className="p-4">
+                <CardContent >
                   {/* Header Row */}
                   <div className="flex items-start justify-between mb-3">
                     <div className="flex items-center gap-3 flex-1 min-w-0">
-                      <div className="relative flex-shrink-0">
+                      <div className="relative shrink-0">
                         <Image
-                          src={job.logo || "/placeholder.svg"}
+                          src={job.logo || '/placeholder.svg'}
                           alt={`${job.company} logo`}
                           width={48}
                           height={48}
@@ -215,23 +219,18 @@ export function FeaturedJobs() {
                             {job.title}
                           </h3>
                           {job.trending && (
-                            <div className="flex-shrink-0 bg-gradient-to-r from-orange-500 to-primary text-white px-1.5 py-0.5 rounded text-xs font-medium">
+                            <div className="shrink-0 bg-linear-to-r from-orange-500 to-primary text-white px-1.5 py-0.5 rounded text-xs font-medium">
                               🔥
                             </div>
                           )}
                         </div>
-                        <p className="text-xs text-muted-foreground truncate">{job.company}</p>
+                        <p className="text-xs text-muted-foreground truncate">
+                          {job.company}
+                        </p>
                       </div>
                     </div>
 
-                    {/* Status Badges */}
-                    <div className="flex flex-col gap-1 items-end flex-shrink-0">
-                      {job.urgent && (
-                        <Badge className="bg-destructive hover:bg-destructive/90 text-destructive-foreground text-xs px-2 py-0.5 animate-pulse">
-                          Urgent
-                        </Badge>
-                      )}
-                    </div>
+                   
                   </div>
 
                   {/* Job Details */}
@@ -252,7 +251,9 @@ export function FeaturedJobs() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-1">
                         <DollarSign className="h-4 w-4 text-green-600 dark:text-green-400" />
-                        <span className="font-bold text-green-600 dark:text-green-400 text-sm">{job.salary}</span>
+                        <span className="font-bold text-green-600 dark:text-green-400 text-sm">
+                          {job.salary}
+                        </span>
                       </div>
                       <div className="flex items-center gap-3 text-xs text-muted-foreground">
                         <div className="flex items-center gap-1">
@@ -286,24 +287,19 @@ export function FeaturedJobs() {
 
                   {/* Action Buttons */}
                   <div className="flex gap-2">
-                    <motion.div
-                      variants={buttonVariants}
-                      whileHover="hover"
-                      whileTap="tap"
-                      className="flex-1"
-                    >
-                      <Button asChild size="sm" className="w-full h-8 text-xs font-medium">
+                    <div className="flex-1">
+                      <Button
+                        asChild
+                        size="sm"
+                        className="w-full h-8 text-xs font-medium"
+                      >
                         <Link href={`/jobs/${job.id}`}>
                           Apply Now
                           <ExternalLink className="ml-1 h-3 w-3" />
                         </Link>
                       </Button>
-                    </motion.div>
-                    <motion.div
-                      variants={buttonVariants}
-                      whileHover="hover"
-                      whileTap="tap"
-                    >
+                    </div>
+                    <div>
                       <Button
                         variant="outline"
                         size="sm"
@@ -311,7 +307,7 @@ export function FeaturedJobs() {
                       >
                         <Bookmark className="h-3 w-3" />
                       </Button>
-                    </motion.div>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
@@ -320,17 +316,14 @@ export function FeaturedJobs() {
         </motion.div>
 
         {/* CTA */}
-        <motion.div 
+        <motion.div
           className="text-center mt-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link
               href="/jobs"
               className="inline-flex items-center justify-center rounded-xl bg-primary px-8 py-3 text-sm font-semibold text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 group"
@@ -343,5 +336,5 @@ export function FeaturedJobs() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

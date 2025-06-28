@@ -49,7 +49,7 @@ export default function RecruiterSignUpPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-muted/30">
+    <div className="min-h-screen bg-linear-to-br from-background to-muted/30">
       <Header />
 
       <div className="container py-10">
@@ -221,7 +221,7 @@ export default function RecruiterSignUpPage() {
                         value={formData.companySize}
                         onValueChange={(value) => updateFormData("companySize", value)}
                       >
-                        <SelectTrigger className="h-11">
+                        <SelectTrigger className="!h-11 !w-full">
                           <div className="flex items-center">
                             <Users className="mr-3 h-4 w-4 text-muted-foreground" />
                             <SelectValue placeholder="Select company size" />
@@ -242,7 +242,7 @@ export default function RecruiterSignUpPage() {
                         Industry
                       </Label>
                       <Select value={formData.industry} onValueChange={(value) => updateFormData("industry", value)}>
-                        <SelectTrigger className="h-11">
+                        <SelectTrigger className="!h-11 !w-full">
                           <SelectValue placeholder="Select industry" />
                         </SelectTrigger>
                         <SelectContent>
@@ -281,7 +281,7 @@ export default function RecruiterSignUpPage() {
                         Location
                       </Label>
                       <Select value={formData.location} onValueChange={(value) => updateFormData("location", value)}>
-                        <SelectTrigger className="h-11">
+                        <SelectTrigger className="!h-11 !w-full ">
                           <div className="flex items-center">
                             <MapPin className="mr-3 h-4 w-4 text-muted-foreground" />
                             <SelectValue placeholder="Select location" />

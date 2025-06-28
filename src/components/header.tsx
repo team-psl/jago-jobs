@@ -76,16 +76,6 @@ export function Header({ isHomePage }: { isHomePage?: boolean }) {
 
         <div className="flex items-center space-x-2">
           {/* Search Bar - Desktop */}
-          <div className="hidden md:flex items-center space-x-2 flex-1 max-w-sm mx-4">
-            <div className="relative flex-1 flex items-center">
-              <Search className="absolute left-2.5 mt-[3px] h-4 w-4 text-muted-foreground" />
-              <Input
-                type="search"
-                placeholder="Search your dream job..."
-                className="pl-8 bg-background/50"
-              />
-            </div>
-          </div>
 
           {/* Right Side Actions */}
           <div className="flex items-center space-x-2">

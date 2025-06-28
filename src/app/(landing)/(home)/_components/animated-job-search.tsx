@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect } from "react"
+
 import { motion } from "framer-motion"
 
 export function AnimatedJobSearch() {
@@ -13,16 +13,6 @@ export function AnimatedJobSearch() {
       transition: { delay: 0.2 + i * 0.2, duration: 0.7, type: "spring" as const, stiffness: 60 },
     },
   })
-
-  // Floating/bounce animation for floating elements and icons
-  const floatTransition = {
-    y: [0, -10, 0],
-    transition: { repeat: Infinity, repeatType: "loop" as const, duration: 2, ease: [0.4, 0, 0.2, 1] as const },
-  }
-  const bounceTransition = {
-    y: [0, -8, 0],
-    transition: { repeat: Infinity, repeatType: "loop" as const, duration: 1.2, ease: [0.4, 0, 0.2, 1] as const },
-  }
 
   return (
     <div className="relative w-full max-w-lg mx-auto">

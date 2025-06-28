@@ -157,7 +157,7 @@ const badgeVariants = {
 
 export function JobCategories() {
   return (
-    <section className="py-20 bg-gradient-to-br from-background via-muted/5 to-background">
+    <section className="py-20 bg-linear-to-br from-background via-muted/5 to-background">
       <div className="container">
         <motion.div 
           className="text-center mb-16"
@@ -168,7 +168,7 @@ export function JobCategories() {
         >
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-4 text-foreground">
             Explore Job{" "}
-            <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-primary to-primary/80 bg-clip-text text-transparent">
               Categories
             </span>
           </h2>
@@ -184,7 +184,7 @@ export function JobCategories() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          {jobCategories.map((category, index) => {
+          {jobCategories.map((category) => {
             const IconComponent = category.icon
             return (
               <motion.div
@@ -196,16 +196,16 @@ export function JobCategories() {
                 }}
               >
                 <Link href={category.href}>
-                  <Card className="group h-full cursor-pointer bg-card border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-300">
-                    <CardContent className="p-6 relative overflow-hidden">
+                  <Card className="group h-full cursor-pointer bg-card border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-300 p-0">
+                    <CardContent className="relative overflow-hidden px-0 py-5">
                       {/* Background Gradient - more subtle in light mode */}
                       <div
-                        className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-5 dark:group-hover:opacity-10 transition-opacity duration-500`}
+                        className={`absolute inset-0 bg-linear-to-br ${category.color} opacity-0 group-hover:opacity-5 dark:group-hover:opacity-10 transition-opacity duration-500`}
                       />
 
                       <div className="relative flex flex-col items-center text-center space-y-4">
                         <motion.div
-                          className={`p-4 rounded-2xl bg-gradient-to-r ${category.color} shadow-md`}
+                          className={`p-4 rounded-2xl bg-linear-to-r ${category.color} shadow-md`}
                           variants={iconVariants}
                           whileHover="hover"
                         >
@@ -223,7 +223,7 @@ export function JobCategories() {
                           >
                             <Badge
                               variant="secondary"
-                              className={`text-xs font-semibold bg-gradient-to-r ${category.color} text-white border-0 shadow-sm`}
+                              className={`text-xs font-semibold bg-linear-to-r ${category.color} text-white border-0 shadow-sm`}
                             >
                               {category.count.toLocaleString()} jobs
                             </Badge>

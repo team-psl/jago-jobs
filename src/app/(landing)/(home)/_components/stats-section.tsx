@@ -79,7 +79,7 @@ export function StatsSection() {
   const isInView = useInView(ref, { once: true })
 
   return (
-    <section ref={ref} id="stats-section" className="py-20 bg-gradient-to-br from-background via-muted/10 to-background">
+    <section ref={ref} id="stats-section" className="py-20 bg-linear-to-br from-background via-muted/10 to-background">
       <div className="container">
         <motion.div 
           className="text-center mb-16"
@@ -89,10 +89,10 @@ export function StatsSection() {
         >
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-4 text-foreground">
             Trusted by{" "}
-            <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">Thousands</span>
+            <span className="bg-linear-to-r from-primary to-primary/80 bg-clip-text text-transparent">Thousands</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Join Bangladesh's fastest-growing job platform and be part of our success story
+            Join Bangladesh&apos;s fastest-growing job platform and be part of our success story
           </p>
         </motion.div>
 
@@ -116,14 +116,14 @@ export function StatsSection() {
                 }}
               >
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-5 dark:group-hover:opacity-10 transition-opacity duration-500"
+                  className="absolute inset-0 bg-linear-to-br opacity-0 group-hover:opacity-5 dark:group-hover:opacity-10 transition-opacity duration-500"
                   style={{ backgroundImage: `linear-gradient(to bottom right, var(--tw-gradient-stops))` }}
                   whileHover={{ opacity: 0.1 }}
                 />
 
                 <div className="relative">
                   <motion.div
-                    className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-r ${stat.color} mb-4 group-hover:scale-110 transition-transform duration-300 shadow-sm`}
+                    className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-linear-to-r ${stat.color} mb-4 group-hover:scale-110 transition-transform duration-300 shadow-sm`}
                     whileHover={{ 
                       scale: 1.1,
                       transition: { duration: 0.2 }
@@ -135,7 +135,7 @@ export function StatsSection() {
                   <div className="space-y-1">
                     <div className="text-3xl font-bold text-foreground">
                       {isInView ? <CountUp end={stat.value} /> : 0}
-                      <span className={`bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`}>
+                      <span className={`bg-linear-to-r ${stat.color} bg-clip-text text-transparent`}>
                         {stat.suffix}
                       </span>
                     </div>

@@ -44,7 +44,7 @@ export default function SeekerSignUpPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-muted/30">
+    <div className="min-h-screen bg-linear-to-br from-background to-muted/30">
       <Header />
 
       <div className="container py-10">
@@ -196,7 +196,7 @@ export default function SeekerSignUpPage() {
                         Location
                       </Label>
                       <Select value={formData.location} onValueChange={(value) => updateFormData("location", value)}>
-                        <SelectTrigger className="h-11">
+                        <SelectTrigger className="!h-11 !w-full">
                           <div className="flex items-center">
                             <MapPin className="mr-3 h-4 w-4 text-muted-foreground" />
                             <SelectValue placeholder="Select your location" />
@@ -219,7 +219,7 @@ export default function SeekerSignUpPage() {
                         Experience Level
                       </Label>
                       <Select value={formData.experience} onValueChange={(value) => updateFormData("experience", value)}>
-                        <SelectTrigger className="h-11">
+                        <SelectTrigger className="!h-11 !w-full">
                           <SelectValue placeholder="Select your experience level" />
                         </SelectTrigger>
                         <SelectContent>

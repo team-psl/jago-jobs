@@ -1,62 +1,29 @@
+/* eslint-disable @next/next/no-img-element */
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Search, MapPin, Briefcase, TrendingUp, Users, Crown, ArrowRight } from "lucide-react"
 import { ModernHeroAnimation } from "./modern-hero-animation"
 import { motion } from "framer-motion"
+import { FlipWords } from "@/components/ui/filp-words"
 
 export function HeroSection() {
   const [jobTitle, setJobTitle] = useState("")
   const [location, setLocation] = useState("")
-  const [currentText, setCurrentText] = useState("")
-  const [textIndex, setTextIndex] = useState(0)
 
   const texts = ["Dream Job", "Perfect Career", "Next Opportunity", "Future Role"]
 
-  // Typing animation effect with backspace
-  useEffect(() => {
-    const text = texts[textIndex]
-    let currentIndex = 0
-    let isDeleting = false
 
-    const typingInterval = setInterval(() => {
-      if (!isDeleting) {
-        // Typing phase
-        if (currentIndex <= text.length) {
-          setCurrentText(text.slice(0, currentIndex))
-          currentIndex++
-        } else {
-          // Finished typing, wait then start deleting
-          clearInterval(typingInterval)
-          setTimeout(() => {
-            isDeleting = true
-            const deleteInterval = setInterval(() => {
-              if (currentIndex > 0) {
-                currentIndex--
-                setCurrentText(text.slice(0, currentIndex))
-              } else {
-                // Finished deleting, move to next word
-                clearInterval(deleteInterval)
-                setTextIndex((prev) => (prev + 1) % texts.length)
-              }
-            }, 50) // Faster deletion speed
-          }, 2000) // Pause before deleting
-        }
-      }
-    }, 100) // Typing speed
-
-    return () => clearInterval(typingInterval)
-  }, [textIndex])
 
   const handleSearch = () => {
     console.log("Searching for:", { jobTitle, location })
   }
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-muted/30">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-linear-to-br from-background via-background to-muted/30">
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Main gradient orbs - more subtle in light mode */}
@@ -84,7 +51,7 @@ export function HeroSection() {
         ))}
 
         {/* Grid pattern overlay - lighter in light mode */}
-        <div className="absolute inset-0 bg-[linear-gradient(hsl(var(--primary)/0.02)_1px,transparent_1px),linear-gradient(90deg,hsl(var(--primary)/0.02)_1px,transparent_1px)] dark:bg-[linear-gradient(hsl(var(--primary)/0.03)_1px,transparent_1px),linear-gradient(90deg,hsl(var(--primary)/0.03)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(hsl(var(--primary)/0.02)_1px,transparent_1px),linear-gradient(90deg,hsl(var(--primary)/0.02)_1px,transparent_1px)] dark:bg-[linear-gradient(hsl(var(--primary)/0.03)_1px,transparent_1px),linear-gradient(90deg,hsl(var(--primary)/0.03)_1px,transparent_1px)] bg-size-[50px_50px] mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
       </div>
 
       <div className="container relative z-10 ">
@@ -127,12 +94,10 @@ export function HeroSection() {
                 className="space-y-2"
               >
                 <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl leading-tight">
-                  <span className="block text-foreground">Find Your</span>
-                  <span className="block text-primary min-h-[1.2em] relative">
-                    {currentText}
-                  </span>
-                  <span className="block text-3xl sm:text-4xl md:text-5xl mt-2 text-muted-foreground">
-                    in Bangladesh
+                  <span className="block text-foreground">Find Your</span> 
+                  <FlipWords words={texts} className="!text-primary -translate-x-2.5"/>
+                  <span className="block text-muted-foreground">
+                    In Bangladesh
                   </span>
                 </h1>
               </motion.div>
@@ -141,7 +106,7 @@ export function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7, duration: 0.7 }}
-                className="max-w-2xl text-lg text-muted-foreground leading-relaxed"
+                className="max-w-2xl text-lg text-muted-foreground leading-relaxed pt-4"
               >
                 Join <span className="font-bold text-primary">100,000+</span> professionals who found their perfect
                 career match. Discover opportunities, get expert advice, and connect with top employers.
@@ -164,13 +129,13 @@ export function HeroSection() {
                         placeholder="Job title, skills, or company..."
                         value={jobTitle}
                         onChange={(e) => setJobTitle(e.target.value)}
-                        className="pl-12 h-12 text-base border-border focus:border-primary focus:ring-primary/20 transition-all duration-300 rounded-xl bg-background"
+                        className="pl-12 h-12 text-base border-border focus:border-primary focus:ring-primary/20 transition-all duration-300 roundlg-xl bg-background"
                       />
                     </div>
                   </div>
                   <div className="sm:w-56">
                     <Select value={location} onValueChange={setLocation}>
-                      <SelectTrigger className="h-12 border-border focus:border-primary focus:ring-primary/20 transition-all duration-300 rounded-xl bg-background">
+                      <SelectTrigger className="border-border focus:border-primary focus:ring-primary/20 transition-all duration-300 roundlg-xl bg-background !h-12 !w-full">
                         <div className="flex items-center">
                           <MapPin className="mr-3 h-5 w-5 text-muted-foreground" />
                           <SelectValue placeholder="Choose Location" />
@@ -193,7 +158,7 @@ export function HeroSection() {
                 <Button
                   onClick={handleSearch}
                   size="lg"
-                  className="w-full mt-4 h-12 text-base transition-all duration-300 transform hover:scale-[1.02] rounded-xl group"
+                  className="w-full mt-4 h-12 text-base transition-all duration-300 transform hover:scale-[1.02] rounded-lg group"
                 >
                   <Search className="mr-2 h-5 w-5 group-hover:animate-pulse" />
                   Search Dream Jobs
@@ -235,7 +200,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: -40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: "easeOut", delay: 0.5 }}
-            className="relative lg:order-last"
+            className="relative lg:order-last max-lg:hidden"
           >
             <ModernHeroAnimation />
           </motion.div>

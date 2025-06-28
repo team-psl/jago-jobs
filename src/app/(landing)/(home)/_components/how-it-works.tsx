@@ -58,14 +58,7 @@ const stepVariants = {
   },
 }
 
-const numberVariants = {
-  hover: {
-    scale: 1.1,
-    transition: {
-      duration: 0.3,
-    }
-  }
-}
+
 
 const iconVariants = {
   hover: {
@@ -78,7 +71,7 @@ const iconVariants = {
 
 export function HowItWorks() {
   return (
-    <section className="py-20 bg-gradient-to-br from-muted/20 via-background to-muted/10">
+    <section className="py-20 bg-linear-to-br from-muted/20 via-background to-muted/10">
       <div className="container">
         <motion.div 
           className="text-center mb-16"
@@ -89,7 +82,7 @@ export function HowItWorks() {
         >
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-4 text-foreground">
             How It{" "}
-            <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">Works</span>
+            <span className="bg-linear-to-r from-primary to-primary/80 bg-clip-text text-transparent">Works</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Your journey to the perfect job is just four simple steps away
@@ -99,7 +92,7 @@ export function HowItWorks() {
         <div className="relative">
           {/* Connection Line - more visible in light mode */}
           <motion.div 
-            className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/10 via-primary/20 to-primary/10 dark:from-primary/20 dark:via-primary/30 dark:to-primary/20 transform -translate-y-1/2"
+            className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-linear-to-r from-primary/10 via-primary/20 to-primary/10 dark:from-primary/20 dark:via-primary/30 dark:to-primary/20 transform -translate-y-1/2"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
@@ -113,7 +106,7 @@ export function HowItWorks() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
           >
-            {steps.map((step, index) => {
+            {steps.map((step) => {
               const IconComponent = step.icon
               return (
                 <motion.div
@@ -125,20 +118,10 @@ export function HowItWorks() {
                     transition: { duration: 0.3 }
                   }}
                 >
-                  {/* Step Number */}
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 lg:relative lg:top-0 lg:left-0 lg:transform-none lg:mb-6">
-                    <motion.div
-                      className={`w-12 h-12 rounded-full bg-gradient-to-r ${step.color} flex items-center justify-center text-white font-bold text-lg shadow-lg`}
-                      variants={numberVariants}
-                      whileHover="hover"
-                    >
-                      {index + 1}
-                    </motion.div>
-                  </div>
 
                   <div className="bg-card rounded-2xl p-8 shadow-md hover:shadow-lg border border-border hover:border-primary/20 transition-all duration-300 mt-6 lg:mt-0">
                     <motion.div
-                      className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r ${step.color} mb-6 shadow-sm`}
+                      className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-linear-to-r ${step.color} mb-6 shadow-sm`}
                       variants={iconVariants}
                       whileHover="hover"
                     >
