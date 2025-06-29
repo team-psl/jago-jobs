@@ -16,63 +16,63 @@ export function HeroSection() {
 
   const texts = ["Dream Job", "Perfect Career", "Next Opportunity", "Future Role"]
 
-
-
   const handleSearch = () => {
     console.log("Searching for:", { jobTitle, location })
   }
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-linear-to-br from-background via-background to-muted/30">
-      {/* Enhanced Background Elements */}
+      {/* Optimized Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Main gradient orbs - more subtle in light mode */}
-        <div className="absolute -top-40 -right-40 h-96 w-96 rounded-full bg-primary/5 dark:bg-primary/10 blur-3xl animate-pulse" />
-        <div className="absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-primary/3 dark:bg-primary/5 blur-3xl animate-pulse delay-1000" />
+        {/* Reduced number of animated orbs for better performance */}
+        <div className="absolute -top-40 -right-40 h-96 w-96 rounded-full bg-primary/5 dark:bg-primary/10 blur-3xl will-change-transform" 
+             style={{ animation: 'pulse 4s ease-in-out infinite' }} />
+        <div className="absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-primary/3 dark:bg-primary/5 blur-3xl will-change-transform" 
+             style={{ animation: 'pulse 4s ease-in-out infinite 2s' }} />
 
-        {/* Additional floating orbs */}
-        <div className="absolute top-20 right-20 h-32 w-32 rounded-full bg-primary/10 dark:bg-primary/20 blur-2xl animate-float" />
-        <div className="absolute bottom-20 left-20 h-24 w-24 rounded-full bg-primary/8 dark:bg-primary/15 blur-xl animate-float delay-500" />
+        {/* Single floating orb instead of multiple */}
+        <div className="absolute top-20 right-20 h-32 w-32 rounded-full bg-primary/10 dark:bg-primary/20 blur-2xl will-change-transform" 
+             style={{ animation: 'float 6s ease-in-out infinite' }} />
 
-        {/* Animated particles */}
-        {[...Array(6)].map((_, i) => (
+        {/* Reduced particles from 6 to 3 for better performance */}
+        {[...Array(3)].map((_, i) => (
           <div
             key={i}
-            className={`absolute animate-bounce opacity-40 dark:opacity-60`}
+            className="absolute will-change-transform"
             style={{
-              top: `${20 + i * 15}%`,
-              left: `${10 + i * 15}%`,
-              animationDelay: `${i * 300}ms`,
-              animationDuration: `${2 + i * 0.5}s`,
+              top: `${20 + i * 25}%`,
+              left: `${10 + i * 25}%`,
+              animation: `bounce ${3 + i}s ease-in-out infinite ${i * 0.5}s`,
             }}
           >
-            <div className={`h-2 w-2 rounded-full bg-primary/60`} />
+            <div className="h-2 w-2 rounded-full bg-primary/60" />
           </div>
         ))}
 
-        {/* Grid pattern overlay - lighter in light mode */}
+        {/* Static grid pattern - no animation needed */}
         <div className="absolute inset-0 bg-[linear-gradient(hsl(var(--primary)/0.02)_1px,transparent_1px),linear-gradient(90deg,hsl(var(--primary)/0.02)_1px,transparent_1px)] dark:bg-[linear-gradient(hsl(var(--primary)/0.03)_1px,transparent_1px),linear-gradient(90deg,hsl(var(--primary)/0.03)_1px,transparent_1px)] bg-size-[50px_50px] mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
       </div>
 
-      <div className="container relative z-10 ">
-        <div className="grid gap-16 lg:grid-cols-2 lg:gap-20 items-center">
-          {/* Enhanced Content */}
+      <div className="container relative z-10 py-30">
+        <div className="grid gap-16 xl:grid-cols-2 lg:gap-20 items-center">
+          {/* Optimized Content Animations */}
           <motion.div
-            initial={{ opacity: 0, y: -40 }}
+            initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             className="flex flex-col justify-center space-y-8"
           >
             <div className="space-y-6">
-              {/* Premium Badge - better contrast in light mode */}
+              {/* Optimized Premium Badge */}
               <motion.div
-                initial={{ opacity: 0, y: -20 }}
+                initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.7 }}
-                className="inline-flex items-center gap-4 px-6 py-3 rounded-full bg-primary text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-500 transform hover:scale-105 group cursor-pointer"
+                transition={{ delay: 0.2, duration: 0.5 }}
+                className="inline-flex items-center gap-4 px-6 py-3 rounded-full bg-primary text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group cursor-pointer will-change-transform"
               >
                 <div className="flex items-center gap-3">
-                  <Crown className="h-5 w-5 text-yellow-300 animate-pulse" />
+                  <Crown className="h-5 w-5 text-yellow-300" 
+                         style={{ animation: 'pulse 2s ease-in-out infinite' }} />
                   <span className="text-2xl">
                     <img src="https://cdn.ipwhois.io/flags/bd.svg" alt="Bangladesh" width={20} height={20} />
                   </span>
@@ -82,15 +82,16 @@ export function HeroSection() {
                   <span className="font-bold text-sm tracking-wider">#1 JOB PORTAL</span>
                   <span className="text-xs opacity-90">IN BANGLADESH</span>
                 </div>
-                <div className="h-3 w-3 rounded-full bg-green-400 animate-pulse shadow-lg shadow-green-400/50" />
-                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+                <div className="h-3 w-3 rounded-full bg-green-400 shadow-lg shadow-green-400/50" 
+                     style={{ animation: 'pulse 2s ease-in-out infinite 1s' }} />
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
               </motion.div>
 
-              {/* Properly Sized Heading - better contrast */}
+              {/* Optimized Heading */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.7 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
                 className="space-y-2"
               >
                 <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl leading-tight">
@@ -103,9 +104,9 @@ export function HeroSection() {
               </motion.div>
 
               <motion.p
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7, duration: 0.7 }}
+                transition={{ delay: 0.4, duration: 0.5 }}
                 className="max-w-2xl text-lg text-muted-foreground leading-relaxed pt-4"
               >
                 Join <span className="font-bold text-primary">100,000+</span> professionals who found their perfect
@@ -113,29 +114,29 @@ export function HeroSection() {
               </motion.p>
             </div>
 
-            {/* Clean Search Form - better light mode styling */}
+            {/* Optimized Search Form */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.9, duration: 0.7 }}
-              className="w-full max-w-2xl"
+              transition={{ delay: 0.5, duration: 0.5 }}
+              className="w-full max-w-3xl"
             >
               <div className="bg-card rounded-2xl p-6 border shadow-lg dark:shadow-xl">
                 <div className="flex flex-col gap-4 sm:flex-row">
                   <div className="flex-1">
                     <div className="relative group/input">
-                      <Briefcase className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground group-focus-within/input:text-primary transition-colors duration-300" />
+                      <Briefcase className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground group-focus-within/input:text-primary transition-colors duration-200" />
                       <Input
                         placeholder="Job title, skills, or company..."
                         value={jobTitle}
                         onChange={(e) => setJobTitle(e.target.value)}
-                        className="pl-12 h-12 text-base border-border focus:border-primary focus:ring-primary/20 transition-all duration-300 roundlg-xl bg-background"
+                        className="pl-12 h-12 text-base border-border focus:border-primary focus:ring-primary/20 transition-all duration-200 roundlg-xl bg-background"
                       />
                     </div>
                   </div>
                   <div className="sm:w-56">
                     <Select value={location} onValueChange={setLocation}>
-                      <SelectTrigger className="border-border focus:border-primary focus:ring-primary/20 transition-all duration-300 roundlg-xl bg-background !h-12 !w-full">
+                      <SelectTrigger className="border-border focus:border-primary focus:ring-primary/20 transition-all duration-200 roundlg-xl bg-background !h-12 !w-full">
                         <div className="flex items-center">
                           <MapPin className="mr-3 h-5 w-5 text-muted-foreground" />
                           <SelectValue placeholder="Choose Location" />
@@ -158,36 +159,39 @@ export function HeroSection() {
                 <Button
                   onClick={handleSearch}
                   size="lg"
-                  className="w-full mt-4 h-12 text-base transition-all duration-300 transform hover:scale-[1.02] rounded-lg group"
+                  className="w-full mt-4 h-12 text-base transition-all duration-200 transform hover:scale-[1.02] rounded-lg group will-change-transform"
                 >
                   <Search className="mr-2 h-5 w-5 group-hover:animate-pulse" />
                   Search Dream Jobs
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-200" />
                 </Button>
               </div>
             </motion.div>
 
-            {/* Enhanced Stats - better visibility in light mode */}
+            {/* Optimized Stats */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.1, duration: 0.7 }}
+              transition={{ delay: 0.6, duration: 0.5 }}
               className="flex flex-wrap gap-8 text-sm"
             >
               <div className="flex items-center gap-3 group cursor-pointer">
-                <div className="h-3 w-3 rounded-full bg-green-500 animate-pulse shadow-sm shadow-green-400/50" />
+                <div className="h-3 w-3 rounded-full bg-green-500 shadow-sm shadow-green-400/50" 
+                     style={{ animation: 'pulse 2s ease-in-out infinite' }} />
                 <span className="font-bold text-xl text-foreground">15,000+</span>
                 <span className="text-muted-foreground font-medium">Active Jobs</span>
                 <TrendingUp className="h-4 w-4 text-green-500 group-hover:animate-bounce" />
               </div>
               <div className="flex items-center gap-3 group cursor-pointer">
-                <div className="h-3 w-3 rounded-full bg-blue-500 animate-pulse delay-300 shadow-sm shadow-blue-400/50" />
+                <div className="h-3 w-3 rounded-full bg-blue-500 shadow-sm shadow-blue-400/50" 
+                     style={{ animation: 'pulse 2s ease-in-out infinite 0.7s' }} />
                 <span className="font-bold text-xl text-foreground">8,500+</span>
                 <span className="text-muted-foreground font-medium">Companies</span>
                 <Briefcase className="h-4 w-4 text-blue-500 group-hover:animate-bounce" />
               </div>
               <div className="flex items-center gap-3 group cursor-pointer">
-                <div className="h-3 w-3 rounded-full bg-primary animate-pulse delay-500 shadow-sm shadow-primary/50" />
+                <div className="h-3 w-3 rounded-full bg-primary shadow-sm shadow-primary/50" 
+                     style={{ animation: 'pulse 2s ease-in-out infinite 1.4s' }} />
                 <span className="font-bold text-xl text-foreground">100,000+</span>
                 <span className="text-muted-foreground font-medium">Success Stories</span>
                 <Users className="h-4 w-4 text-primary group-hover:animate-bounce" />
@@ -195,17 +199,25 @@ export function HeroSection() {
             </motion.div>
           </motion.div>
 
-          {/* Modern Animation */}
+          {/* Optimized Animation */}
           <motion.div
-            initial={{ opacity: 0, y: -40 }}
+            initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: "easeOut", delay: 0.5 }}
-            className="relative lg:order-last max-lg:hidden"
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+            className="relative lg:order-last max-xl:hidden"
           >
             <ModernHeroAnimation />
           </motion.div>
         </div>
       </div>
+
+      {/* Add CSS animations for better performance */}
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-20px); }
+        }
+      `}</style>
     </section>
   )
 }

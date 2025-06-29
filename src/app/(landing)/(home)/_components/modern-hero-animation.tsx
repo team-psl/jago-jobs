@@ -9,7 +9,7 @@ export function ModernHeroAnimation() {
   useEffect(() => {
     const cardInterval = setInterval(() => {
       setActiveCard((prev) => (prev + 1) % 3);
-    }, 3000);
+    }, 4000);
     return () => clearInterval(cardInterval);
   }, []);
 
@@ -39,31 +39,31 @@ export function ModernHeroAnimation() {
 
   return (
     <div className="relative w-full max-w-2xl mx-auto h-[600px] opacity-85">
-      {/* Background Elements */}
-      <div className="absolute inset-0 ">
+      {/* Optimized Background Elements */}
+      <div className="absolute inset-0">
         <motion.div
-          className="absolute top-10 left-10 w-24 h-24 bg-linear-to-br from-blue-400/20 to-blue-600/30 rounded-2xl rotate-12"
-          animate={{ y: [0, -10, 0], rotate: [12, 15, 12] }}
-          transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
+          className="absolute top-10 left-10 w-24 h-24 bg-linear-to-br from-blue-400/20 to-blue-600/30 rounded-2xl rotate-12 will-change-transform"
+          animate={{ y: [0, -8, 0], rotate: [12, 15, 12] }}
+          transition={{ repeat: Infinity, duration: 6, ease: 'easeInOut' }}
         />
         <motion.div
-          className="absolute top-32 right-16 w-20 h-20 bg-linear-to-br from-purple-400/20 to-purple-600/30 rounded-full"
-          animate={{ y: [0, -15, 0], scale: [1, 1.1, 1] }}
+          className="absolute top-32 right-16 w-20 h-20 bg-linear-to-br from-purple-400/20 to-purple-600/30 rounded-full will-change-transform"
+          animate={{ y: [0, -12, 0], scale: [1, 1.05, 1] }}
           transition={{
             repeat: Infinity,
-            duration: 5,
+            duration: 8,
             ease: 'easeInOut',
-            delay: 1,
+            delay: 2,
           }}
         />
         <motion.div
-          className="absolute bottom-32 left-20 w-16 h-16 bg-linear-to-br from-green-400/20 to-green-600/30 rounded-lg rotate-45"
-          animate={{ y: [0, -8, 0], rotate: [45, 50, 45] }}
+          className="absolute bottom-32 left-20 w-16 h-16 bg-linear-to-br from-green-400/20 to-green-600/30 rounded-lg rotate-45 will-change-transform"
+          animate={{ y: [0, -6, 0], rotate: [45, 48, 45] }}
           transition={{
             repeat: Infinity,
-            duration: 3.5,
+            duration: 7,
             ease: 'easeInOut',
-            delay: 2,
+            delay: 3,
           }}
         />
         <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-size-[30px_30px] opacity-40" />
@@ -75,19 +75,19 @@ export function ModernHeroAnimation() {
           {jobCards.map((card, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 50, scale: 0.8 }}
+              initial={{ opacity: 0, y: 30, scale: 0.8 }}
               animate={{
                 opacity: activeCard === index ? 1 : 0.3,
-                y: activeCard === index ? 0 : index * 8,
+                y: activeCard === index ? 0 : index * 6,
                 scale: activeCard === index ? 1 : 0.9,
-                x: activeCard === index ? 0 : index * 4,
+                x: activeCard === index ? 0 : index * 3,
               }}
               transition={{ 
-                duration: 0.5, 
+                duration: 0.4, 
                 delay: index * 0.1,
                 ease: "easeOut"
               }}
-              className="absolute"
+              className="absolute will-change-transform"
               style={{
                 zIndex: activeCard === index ? 10 : 1,
               }}
@@ -108,9 +108,9 @@ export function ModernHeroAnimation() {
         <div className="relative">
           {/* Job Seeker (Left) */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             className="absolute left-0 top-20"
           >
             <svg
@@ -167,10 +167,10 @@ export function ModernHeroAnimation() {
                   height="35"
                   rx="8"
                   fill="url(#briefcaseGradient)"
-                  animate={{ y: [0, -3, 0] }}
+                  animate={{ y: [0, -2, 0] }}
                   transition={{
                     repeat: Infinity,
-                    duration: 2,
+                    duration: 3,
                     ease: 'easeInOut',
                   }}
                 />
@@ -196,9 +196,9 @@ export function ModernHeroAnimation() {
 
           {/* Recruiter (Right) */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
             className="absolute right-0 top-20"
           >
             <svg
@@ -254,10 +254,10 @@ export function ModernHeroAnimation() {
                   height="40"
                   rx="8"
                   fill="url(#laptopGradient)"
-                  animate={{ y: [0, -2, 0] }}
+                  animate={{ y: [0, -1, 0] }}
                   transition={{
                     repeat: Infinity,
-                    duration: 2.5,
+                    duration: 4,
                     ease: 'easeInOut',
                   }}
                 />
@@ -285,7 +285,7 @@ export function ModernHeroAnimation() {
           <motion.div
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
             className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
           >
             <div className="w-32 h-32 bg-linear-to-br from-primary/20 to-primary/40 rounded-full flex items-center justify-center">
@@ -293,13 +293,11 @@ export function ModernHeroAnimation() {
             </div>
           </motion.div>
 
-          {/* Floating Job Cards */}
-
-          {/* Success Indicators */}
+          {/* Reduced Success Indicators */}
           <motion.div
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 1 }}
+            transition={{ duration: 0.6, delay: 1 }}
             className="absolute -bottom-10 -right-10"
           >
             <div className="bg-green-500 text-white p-4 rounded-full shadow-lg">
@@ -313,11 +311,11 @@ export function ModernHeroAnimation() {
             </div>
           </motion.div>
 
-          {/* Notification Bubbles */}
+          {/* Optimized Notification Bubbles */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 15 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
+            transition={{ duration: 0.6, delay: 1.2 }}
             className="absolute top-10 right-10"
           >
             <div className="bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
@@ -325,11 +323,11 @@ export function ModernHeroAnimation() {
             </div>
           </motion.div>
 
-          {/* Stats */}
+          {/* Optimized Stats */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.4 }}
+            transition={{ duration: 0.6, delay: 1.4 }}
             className="absolute bottom-10 left-10"
           >
             <div className="bg-white/90 backdrop-blur-sm p-3 rounded-lg shadow-lg">

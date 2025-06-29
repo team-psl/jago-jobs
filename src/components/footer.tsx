@@ -1,7 +1,8 @@
 import Link from "next/link"
-import { Briefcase, Facebook, Twitter, Linkedin, Instagram } from "lucide-react"
+import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import Brand from "./Brand"
 
 export function Footer() {
   return (
@@ -11,12 +12,7 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center space-x-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
-                <Briefcase className="h-5 w-5 text-primary-foreground" />
-              </div>
-              <span className="text-xl font-bold">
-                Jago<span className="text-primary">Jobs</span>
-              </span>
+              <Brand className="w-32 md:w-42 h-15" />
             </Link>
             <p className="text-sm text-muted-foreground max-w-xs">
               Bangladesh&apos;s leading job portal connecting talented professionals with top employers across the country.

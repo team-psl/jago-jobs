@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client"
 
 import type React from "react"
@@ -9,7 +10,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
-import { Eye, EyeOff, Mail, Lock, Briefcase, ArrowLeft } from "lucide-react"
+import { Eye, EyeOff, Mail, Lock, ArrowLeft } from "lucide-react"
 import { Checkbox } from "@/components/ui/checkbox"
 
 export default function SeekerSignInPage() {
@@ -29,23 +30,23 @@ export default function SeekerSignInPage() {
 
   return (
     <div className="bg-linear-to-br from-background to-muted/30">
-      <div className="container py-24">
+      <div className="container py-24 max-sm:px-0">
         <div className="max-w-md mx-auto">
           {/* Back Link */}
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-primary mb-8 transition-colors"
+            className="inline-flex max-sm:hidden items-center gap-2 text-foreground/70 hover:text-primary mb-8 transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to Home
           </Link>
 
-          <Card className="shadow-xl border bg-card/80 backdrop-blur-sm">
-            <CardHeader className="text-center space-y-4">
-              <div className="mx-auto w-16 h-16 bg-primary rounded-2xl flex items-center justify-center">
-                <Briefcase className="h-8 w-8 text-primary-foreground" />
+          <Card className="shadow-xl max-sm:border-none max-sm:bg-white max-sm:shadow-none bg-card/80 backdrop-blur-sm">
+            <CardHeader className="text-center space-y-2 mb-2">
+              <div className="flex justify-center">
+                <img src="/jago-jobs-logo.png" alt="Logo" className="w-16 h-16 rounded-3xl" />
               </div>
-              <div>
+              <div className="">
                 <CardTitle className="text-2xl font-bold text-card-foreground">Welcome Back, Job Seeker!</CardTitle>
                 <CardDescription className="text-muted-foreground">
                   Sign in to continue your job search journey

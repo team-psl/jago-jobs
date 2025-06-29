@@ -109,8 +109,8 @@ export function TestimonialsSection() {
           </p>
         </div>
 
-        {/* Infinite Scroll Container */}
-        <div className="relative overflow-hidden">
+        {/* Desktop Infinite Scroll - Hidden on Mobile */}
+        <div className="hidden md:block relative overflow-hidden">
           {/* Left Edge Shadow */}
           <div className="absolute left-0 top-0 bottom-0 w-16 bg-linear-to-r from-background via-background/80 to-transparent z-10 pointer-events-none" />
           
@@ -118,12 +118,12 @@ export function TestimonialsSection() {
           <div className="absolute right-0 top-0 bottom-0 w-16 bg-linear-to-l from-background via-background/80 to-transparent z-10 pointer-events-none" />
           
           <motion.div
-            className="flex gap-6"
+            className="flex gap-6 will-change-transform"
             animate={{
               x: [0, -(350 + 24) * testimonials.length], // Calculate exact distance: card width + gap
             }}
             transition={{
-              duration: 120, // 2 minutes for one complete cycle (much slower)
+              duration: 180, // 3 minutes for one complete cycle (slower for better performance)
               repeat: Infinity,
               ease: "linear",
             }}
@@ -131,7 +131,7 @@ export function TestimonialsSection() {
             {duplicatedTestimonials.map((t, idx) => (
               <Card
                 key={`${t.name}-${idx}`}
-                className="min-w-[350px] max-w-[350px] bg-card border border-border hover:border-primary/20 hover:shadow-lg transition-all duration-300"
+                className="min-w-[350px] max-w-[350px] bg-card border border-border hover:border-primary/20 hover:shadow-lg transition-all duration-200"
               >
                 <CardContent className="p-6 space-y-4">
                   <div className="flex items-center gap-3">
@@ -158,38 +158,40 @@ export function TestimonialsSection() {
           </motion.div>
         </div>
 
-        {/* Static Grid for Mobile */}
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-12 md:hidden">
-          {testimonials.slice(0, 6).map((t, idx) => (
-            <Card
-              key={t.name}
-              className={`transition-all duration-700 bg-card border border-border hover:border-primary/20 hover:shadow-lg ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              }`}
-              style={{ transitionDelay: `${idx * 100}ms` }}
-            >
-              <CardContent className="p-6 space-y-4">
-                <div className="flex items-center gap-3">
-                  <Avatar className="h-12 w-12 border-2 border-border">
-                    <AvatarImage src={t.avatar} alt={t.name} />
-                    <AvatarFallback>{t.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <h4 className="font-semibold text-foreground text-sm">{t.name}</h4>
-                    <p className="text-xs text-muted-foreground">{t.role}</p>
+        {/* Mobile Grid Layout */}
+        <div className="md:hidden">
+          <div className="grid gap-4 grid-cols-1 sm:grid-cols-2">
+            {testimonials.slice(0, 6).map((t, idx) => (
+              <Card
+                key={t.name}
+                className={`transition-all duration-500 bg-card border border-border hover:border-primary/20 hover:shadow-lg will-change-transform ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                }`}
+                style={{ transitionDelay: `${idx * 80}ms` }}
+              >
+                <CardContent className="p-4 space-y-3">
+                  <div className="flex items-center gap-3">
+                    <Avatar className="h-10 w-10 border-2 border-border">
+                      <AvatarImage src={t.avatar} alt={t.name} />
+                      <AvatarFallback>{t.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                    </Avatar>
+                    <div className="min-w-0 flex-1">
+                      <h4 className="font-semibold text-foreground text-sm truncate">{t.name}</h4>
+                      <p className="text-xs text-muted-foreground truncate">{t.role}</p>
+                    </div>
                   </div>
-                </div>
 
-                <p className="leading-relaxed text-foreground text-sm">&ldquo;{t.quote}&rdquo;</p>
+                  <p className="leading-relaxed text-foreground text-sm line-clamp-3">&ldquo;{t.quote}&rdquo;</p>
 
-                <div className="flex space-x-1 text-yellow-500">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-3 w-3 fill-current" />
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                  <div className="flex space-x-1 text-yellow-500">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-3 w-3 fill-current" />
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </section>

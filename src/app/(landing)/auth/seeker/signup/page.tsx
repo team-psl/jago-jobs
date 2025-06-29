@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client"
 
 import type React from "react"
@@ -11,7 +12,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Separator } from "@/components/ui/separator"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Checkbox } from "@/components/ui/checkbox"
-import { Eye, EyeOff, Mail, Lock, User, Phone, MapPin, Briefcase, ArrowLeft } from "lucide-react"
+import { Eye, EyeOff, Mail, Lock, User, Phone, MapPin, ArrowLeft } from "lucide-react"
 
 
 export default function SeekerSignUpPage() {
@@ -45,21 +46,22 @@ export default function SeekerSignUpPage() {
   return (
     <div className="bg-linear-to-br from-background to-muted/30">
 
-      <div className="container py-24">
+      <div className="container py-24 max-sm:px-0">
         <div className="max-w-2xl mx-auto">
           {/* Back Link */}
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-primary mb-8 transition-colors"
+            className="inline-flex max-sm:hidden items-center gap-2 text-foreground/70 hover:text-primary mb-8 transition-colors"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to Home
           </Link>
 
-          <Card className="shadow-xl border bg-card/80 backdrop-blur-sm">
-            <CardHeader className="text-center space-y-4">
-              <div className="mx-auto w-16 h-16 bg-primary rounded-2xl flex items-center justify-center">
-                <Briefcase className="h-8 w-8 text-primary-foreground" />
+          <Card className="shadow-xl max-sm:border-none max-sm:bg-white max-sm:shadow-none bg-card/80 backdrop-blur-sm">
+
+            <CardHeader className="text-center space-y-2 mb-2">
+              <div className="flex justify-center">
+                <img src="/jago-jobs-logo.png" alt="Logo" className="w-16 h-16 rounded-3xl" />
               </div>
               <div>
                 <CardTitle className="text-2xl font-bold text-card-foreground">Start Your Career Journey</CardTitle>
@@ -71,7 +73,7 @@ export default function SeekerSignUpPage() {
 
             <CardContent className="space-y-6">
               {/* Social Login */}
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-3 max-sm:grid-col-1">
                 <Button variant="outline" className="h-11 bg-transparent">
                   <svg className="h-4 w-4 mr-2" viewBox="0 0 24 24">
                     <path
@@ -115,7 +117,7 @@ export default function SeekerSignUpPage() {
                 {/* Personal Information */}
                 <div className="space-y-4">
                   <h3 className="text-lg font-semibold text-foreground">Personal Information</h3>
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-2 gap-3 max-sm:grid-cols-1">
                     <div className="space-y-2">
                       <Label htmlFor="firstName" className="text-foreground">
                         First Name
@@ -147,7 +149,7 @@ export default function SeekerSignUpPage() {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-2 gap-3 max-sm:grid-cols-1">
                     <div className="space-y-2">
                       <Label htmlFor="email" className="text-foreground">
                         Email Address
@@ -188,7 +190,7 @@ export default function SeekerSignUpPage() {
                 {/* Professional Information */}
                 <div className="space-y-4">
                   <h3 className="text-lg font-semibold text-foreground">Professional Information</h3>
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-2 gap-3 max-sm:grid-cols-1">
                     <div className="space-y-2">
                       <Label htmlFor="location" className="text-foreground">
                         Location
@@ -235,7 +237,7 @@ export default function SeekerSignUpPage() {
                 {/* Security */}
                 <div className="space-y-4">
                   <h3 className="text-lg font-semibold text-foreground">Security</h3>
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-2 gap-3 max-sm:grid-cols-1">
                     <div className="space-y-2">
                       <Label htmlFor="password" className="text-foreground">
                         Password
