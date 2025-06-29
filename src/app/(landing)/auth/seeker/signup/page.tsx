@@ -12,8 +12,7 @@ import { Separator } from "@/components/ui/separator"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Eye, EyeOff, Mail, Lock, User, Phone, MapPin, Briefcase, ArrowLeft } from "lucide-react"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
+
 
 export default function SeekerSignUpPage() {
   const [showPassword, setShowPassword] = useState(false)
@@ -44,10 +43,9 @@ export default function SeekerSignUpPage() {
   }
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-background to-muted/30">
-      <Header />
+    <div className="bg-linear-to-br from-background to-muted/30">
 
-      <div className="container py-10">
+      <div className="container py-24">
         <div className="max-w-2xl mx-auto">
           {/* Back Link */}
           <Link
@@ -328,8 +326,6 @@ export default function SeekerSignUpPage() {
           </Card>
         </div>
       </div>
-
-      <Footer />
     </div>
   )
 }

@@ -10,8 +10,7 @@ import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { Eye, EyeOff, Mail, Lock, Building2, ArrowLeft } from "lucide-react"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
+
 import { Checkbox } from "@/components/ui/checkbox"
 
 export default function RecruiterSignInPage() {
@@ -30,10 +29,9 @@ export default function RecruiterSignInPage() {
   }
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-background to-muted/30">
-      <Header />
+    <div className="bg-linear-to-br from-background to-muted/30">
 
-      <div className="container py-10">
+      <div className="container py-24">
         <div className="max-w-md mx-auto">
           {/* Back Link */}
           <Link
@@ -178,8 +176,6 @@ export default function RecruiterSignInPage() {
           </Card>
         </div>
       </div>
-
-      <Footer />
     </div>
   )
 }

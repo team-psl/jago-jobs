@@ -12,8 +12,7 @@ import { Separator } from "@/components/ui/separator"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import { Eye, EyeOff, Mail, Lock, User, Phone, MapPin, Building2, ArrowLeft, Globe, Users } from "lucide-react"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
+
 import { Checkbox } from "@/components/ui/checkbox"
 
 export default function RecruiterSignUpPage() {
@@ -49,10 +48,9 @@ export default function RecruiterSignUpPage() {
   }
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-background to-muted/30">
-      <Header />
+    <div className="bg-linear-to-br from-background to-muted/30">
 
-      <div className="container py-10">
+      <div className="container py-24">
         <div className="max-w-2xl mx-auto">
           {/* Back Link */}
           <Link
@@ -409,8 +407,6 @@ export default function RecruiterSignUpPage() {
           </Card>
         </div>
       </div>
-
-      <Footer />
     </div>
   )
 }

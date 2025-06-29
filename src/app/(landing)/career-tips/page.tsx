@@ -1,8 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -152,8 +150,6 @@ export default function CareerTipsPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
-
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-primary/5 via-background to-muted/10">
         <div className="container">
@@ -477,7 +473,6 @@ export default function CareerTipsPage() {
         </div>
       </div>
 
-      <Footer />
     </div>
   )
 }
