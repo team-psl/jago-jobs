@@ -57,7 +57,7 @@ export default function SeekerSignUpPage() {
             Back to Home
           </Link>
 
-          <Card className="shadow-xl max-sm:border-none max-sm:bg-white max-sm:shadow-none bg-card/80 backdrop-blur-sm">
+          <Card className="shadow-xl max-sm:border-none max-sm:bg-transparent max-sm:shadow-none bg-card/80 backdrop-blur-sm">
 
             <CardHeader className="text-center space-y-2 mb-2">
               <div className="flex justify-center">
